@@ -3,45 +3,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace Snake
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Point p1 = new Point(1, 3, '*');
-            p1.Draw();
-            Point p2 = new Point(4, 5, '#');
-            p2.Draw();
+            List<char> charList = new List<char>();
+            charList.Add('@');
+            charList.Add('#');
+            charList.Add('$');
+            charList.Add('%');
+            charList.Add('&');
+            charList.Add('*');
 
-            Console.WriteLine(" ");
-            Console.WriteLine(" ");
-            Console.WriteLine("   p1  ---> " + p1.x + "  " + p1.y);
-            Console.WriteLine("   p2  ---> " + p2.x + "  " + p2.y);
+            foreach (char c in charList)
+            {
+                Console.WriteLine(c);
+            }
 
-            p1 = p2; // p2 = p1; <-- у автора
+            Point p1 = new Point(5, 5, '*');
+            Point p2 = new Point(6, 6, '#');
+            Point p3 = new Point(7, 7, '&');
+            Point p4 = new Point(8, 8, '%');
+            Point p5 = new Point(10, 10, '$');
+            Point p6 = new Point(10, 10, '@');
 
-            Console.WriteLine(" ");
-            Console.WriteLine("   p1=p2 p1 ---> " + p1.x + "  " + p1.y);
-            Console.WriteLine("   p1=p2 p2 ---> " + p2.x + "  " + p2.y);
+            List<Point> pList = new List<Point>();
+            pList.Add(p1);
+            pList.Add(p2);
+            pList.Add(p3);
+            pList.Add(p4);
+            pList.Add(p5);
+            pList.Add(p6);
 
-            p2.x = 8; // p1.x = 8; для экперемента можно и эти координаты
-            p2.y = 8; // p2.y = 6; меняет координаты обоих Point
-
-            Console.WriteLine(" ");
-            Console.WriteLine("   new p2(8,8) p1 ---> " + p1.x + "  " + p1.y);
-            Console.WriteLine("   new p2(8,8) p2 ---> " + p2.x + "  " + p2.y);
-
-            p1.x = 3; // Не важно какие координаты менять х или у 1-ой или 2-ой Point 
-            p2.y = 5; // меняется всё т.к. адрес тот же
-
-            Console.WriteLine(" ");
-            Console.WriteLine("   new p1.x = 3 p1 ---> " + p1.x + "  " + p1.y);
-            Console.WriteLine("   new p2.y = 5 p2 ---> " + p2.x + "  " + p2.y);
+            foreach (Point p in pList)
+            {
+                p.Draw();
+            }
 
             Console.ReadLine();
         }
-        
     }
 }
