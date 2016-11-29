@@ -32,10 +32,16 @@ namespace Snake
 
             while (true)
             {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.PressKey(key.Key);
+                }
                 snake.Move();
                 Thread.Sleep(200);
             }
-            Console.ReadLine();
+
+            
         }
     }
 }
