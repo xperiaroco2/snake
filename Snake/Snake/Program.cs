@@ -8,39 +8,27 @@ namespace Snake
     class Program
     {
         static void Main(string[] args)
-        {
-            List<char> charList = new List<char>();
-            charList.Add('@');
-            charList.Add('#');
-            charList.Add('$');
-            charList.Add('%');
-            charList.Add('&');
-            charList.Add('*');
+        {   
+            //Размер экрана
+            Console.SetBufferSize(80, 25);
+           
+            //Горизонт. линия
+            Linesx linex1 = new Linesx(0, 78, 0, '+');
+            linex1.DrawLine();
+            Linesx linex2 = new Linesx(0, 78, 24, '+');
+            linex2.DrawLine();
+            
+            //Вертикал. линия
+            Linesy liney1 = new Linesy(0, 24, 0, '+');
+            liney1.DrawLine();
+            Linesy liney2 = new Linesy(0, 24, 78, '+');
+            liney2.DrawLine();
 
-            foreach (char c in charList)
-            {
-                Console.WriteLine(c);
-            }
-
-            Point p1 = new Point(5, 5, '*');
-            Point p2 = new Point(6, 6, '#');
-            Point p3 = new Point(7, 7, '&');
-            Point p4 = new Point(8, 8, '%');
-            Point p5 = new Point(10, 10, '$');
-            Point p6 = new Point(10, 10, '@');
-
-            List<Point> pList = new List<Point>();
-            pList.Add(p1);
-            pList.Add(p2);
-            pList.Add(p3);
-            pList.Add(p4);
-            pList.Add(p5);
-            pList.Add(p6);
-
-            foreach (Point p in pList)
-            {
-                p.Draw();
-            }
+            //Создание змейки
+            Point p = new Point(4, 5, '*');
+            Snake snake = new Snake(p, 4, Direction.RIGHT );
+            snake.DrawLine();
+                  
 
             Console.ReadLine();
         }
