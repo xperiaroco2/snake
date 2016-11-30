@@ -52,6 +52,11 @@ namespace Snake
             Draw();
         }
 
+        public bool Hit(Point p)
+        {
+            return p.x == this.x && p.y == this.y;
+        }
+
         public override string ToString()
         {
             return x + ", " + y + ", " + sym;
